@@ -26,7 +26,7 @@ class task{
         $this->msg=new msg();
 
         $this->pid=$pid=\pcntl_fork();
-        if($pid){
+        if($pid==0){
             if(function_exists('setproctitle'))setproctitle('php task');
 
             $task($this);            

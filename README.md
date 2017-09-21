@@ -4,3 +4,7 @@
 pcntl
 posix
 proctitle
+libevent
+shmop
+sysvmsg
+inotify

@@ -4,6 +4,9 @@ namespace mem;
 class pipe{
     private $fkey;
     // private $fd;
+    public function __get($name){
+        return $this->$name;
+    }
 
     public function __construct(){
         $this->fkey="/tmp/pipe";
@@ -22,12 +25,16 @@ class pipe{
 
     public function write($data){
         $fd=\fopen($this->fkey,'w');
+        stream_set_blocking($fd,0);
+
+        echo 123;
         \fwrite($fd,$data);
         fclose($fd);
     }
 
     public function read(){
         $fd=\fopen($this->fkey,'r');
+        stream_set_blocking($fd,0);
 
         $data='';
         while($fd && !\feof($fd)){
@@ -37,4 +44,6 @@ class pipe{
         fclose($fd);        
         return $data;
     }
+
+    // public function getR
 }

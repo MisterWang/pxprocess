@@ -3,7 +3,6 @@ require __DIR__."/../al.php";
 
 use proc\task;
 
-
 /**
  * 命名管道通信
  */

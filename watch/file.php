@@ -1,5 +1,5 @@
 <?php
-namespace event;
+namespace watch;
 
 $base=event_base_new();
 $event=event_new();

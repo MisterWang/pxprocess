@@ -3,6 +3,9 @@ namespace proc;
 
 class msg{
     private $mem;
+    public function __get($name){
+        return $this->$name;
+    }
 
     public function __construct(){
         $this->mem=new \mem\pipe();

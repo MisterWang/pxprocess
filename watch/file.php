@@ -1,23 +1,31 @@
 <?php
 namespace watch;
 
-$base=event_base_new();
-$event=event_new();
+class file{
+    private $fd;
+    private $watch;
+    
+    //http://php.net/manual/en/inotify.constants.php
+    const MODFIFY=IN_MODIFY;
+    const ACCESS=IN_ACCESS;
+    CONST OPEN=IN_OPEN;
+    const ALL_EVENTS=IN_ALL_EVENTS;
 
-$fd=inotify_init();
-$watch=inotify_add_watch($fd,__DIR__."/../test.html",IN_MODIFY|IN_ACCESS|IN_OPEN);
-
-event_set($event,$fd,EV_READ|EV_WRITE,function($fd,$flag,$base){
-    $events = inotify_read($fd);
-    if ($events) {
-        foreach ($events as $event) {
-            // file_put_contents("e.log",'111');
-            echo  var_export($event, 1).PHP_EOL;
-        }
+    public function __get($name){
+        return $this->$name;
     }
-});
-event_base_set($event,$base);
-event_add($event);
-echo '123'.PHP_EOL;
-event_base_loop($base);
 
+    public function __construct($file,$mask=self::MODFIFY){
+        $this->fd=\inotify_init();
+        stream_set_blocking($this->fd,0);
+        $this->watch=\inotify_add_watch($this->fd,$file,$mask);
+    }
+    
+    public function read(){
+        return \inotify_read($this->fd);
+    }
+    public function close(){
+        \inotify_rm_watch($this->watch);
+        fclose($this->fd);
+    }
+}

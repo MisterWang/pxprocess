@@ -8,6 +8,7 @@ use io\event;
 use proc\task;
 /**
  * 多进程结合libevent
+ * 多层嵌套...
  */
 $serv=new skserver();
 for($i=0;$i<2;$i++){

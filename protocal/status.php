@@ -6,4 +6,6 @@ class status{
     const ERROR=0X2;
     const UNKNOWCMD=0X3;//未知命令
     const UNKNOW=0X4;   //未知
+
+    // static function msg()
 }

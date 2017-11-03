@@ -13,7 +13,7 @@ class skserver{
     }
     public function __construct($host='127.0.0.1:8182'){
         $this->ser=stream_socket_server($host,$this->errno,$this->err);
-    }
+    } 
 
     public function accept(){
         if($this->ser)

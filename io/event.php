@@ -14,6 +14,8 @@ class event{
     CONST SIGNAL=EV_SIGNAL;
     CONST PERSIST=EV_PERSIST;
 
+    const DEFAULT=EV_READ|EV_WRITE|EV_PERSIST;
+
     //A stream, socket resource, or numeric file descriptor; for signal events pass -1 .
     public function __construct($fd,$task,$evs=self::WRITE){
         $this->ev=\event_new();

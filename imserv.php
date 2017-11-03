@@ -7,7 +7,7 @@ use io\event;
 
 use proc\task;
 
-define("MAX_PROC",16);//进程数
+define("MAX_PROC",4);//进程数
 
 $serv=new skserver();
 

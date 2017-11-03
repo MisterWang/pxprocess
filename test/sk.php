@@ -12,7 +12,7 @@ $serv=new skserver();
 // while(1){
 new event($serv->ser,function($fd,$evs,$args)use($serv){
     if($fdrecv=$serv->accept()){
-        echo fgets($fdrecv);
+        echo fread($fdrecv,4096);
         fwrite($fdrecv,"test\n");
     }
     fclose($fdrecv);

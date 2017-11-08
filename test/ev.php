@@ -22,3 +22,4 @@ $h1=new task(function ($self){
     $self->msg->write("123\n");
     sleep(1);
 },task::LOOP);
+task::wait();

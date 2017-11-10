@@ -44,6 +44,4 @@ class pipe{
         fclose($fd);        
         return $data;
     }
-
-    // public function getR
 }

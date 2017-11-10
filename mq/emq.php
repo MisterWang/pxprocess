@@ -8,7 +8,8 @@ class emq{
     private $_exit=1;
 
     public function __construct(){
-        $this->_redis=new redis();
+        // $this->_redis=new redis('/tmp/redis.sock');
+        $this->_redis=new redis();        
     }
 
     public function run($task){

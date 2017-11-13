@@ -16,7 +16,7 @@ class HttpRequest{
         curl_setopt_array($this->fd,$params);
     }
     public function __destruct(){
-        curl_close($this->fd);
+        // curl_close($this->fd);
     }
 
     public function set($opt,$val){
@@ -33,6 +33,9 @@ class HttpRequest{
 
     public function exec(){
         return curl_exec($this->fd);
+    }
+    public function close(){
+        \curl_close($this->fd);
     }
 
     /**

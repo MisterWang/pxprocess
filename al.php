@@ -7,3 +7,6 @@ spl_autoload_register(function ($class){
 });
 
 // if(class_exists('SyncSharedMemory'))echo 123;
+function cl_autoload_exists(){
+    
+}

@@ -8,6 +8,7 @@ use proc\task;
  */
 for($i=0;$i<6;$i++){
     $h[]=$h1=new task(function($task){
+        var_dump(spl_autoload_functions());
         sleep(1);
         $d=$task->msg->read();
         if($d)echo $d.'-'.getmypid().PHP_EOL;
@@ -21,4 +22,4 @@ $h2=new task(function($task){
     sleep(1);
 },task::LOOP);
 
-task::wait($status);
+task::wait($status);                                                                                                                                            

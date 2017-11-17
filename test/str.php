@@ -11,3 +11,6 @@ echo sprintf('%x',$sum);
 echo $sum;
 
 0x1bb;
+
+echo PHP_EOL;
+echo md5('JvTu0YIMNx7Yj3LLGv9J8d0BUU5vibFQ');

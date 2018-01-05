@@ -11,6 +11,6 @@ class thread extends \Thread{
 
     public function run(){
         $task=$this->_func;
-        $task();        
+        $task($this);        
     }
 }
